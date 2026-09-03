@@ -1,0 +1,1083 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colombia, Dicembre 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --paper: #eeece1;
+    --paper-card: #f9f8f2;
+    --ink: #202821;
+    --ink-soft: #5c6355;
+    --ink-faint: #8a8f7d;
+    --line: #cac6b0;
+    --line-strong: #a9a488;
+    --accent: #1e4b3f;
+    --accent-soft: #dde6de;
+    --bog: #47607a;
+    --bog-soft: #e2e8ee;
+    --mde: #5c7a2e;
+    --mde-soft: #e4ebd7;
+    --gua: #b8791a;
+    --gua-soft: #f2e5cd;
+    --cta: #b23a5e;
+    --cta-soft: #f3dde4;
+    --shadow: 0 1px 2px rgba(32,40,33,0.06), 0 6px 20px -8px rgba(32,40,33,0.18);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #14180f;
+      --paper-card: #1c2117;
+      --ink: #e9e7d9;
+      --ink-soft: #b3b3a0;
+      --ink-faint: #7d8270;
+      --line: #3a3f30;
+      --line-strong: #4c523f;
+      --accent: #7cc4a7;
+      --accent-soft: #223228;
+      --bog: #9fb8d4;
+      --bog-soft: #232c35;
+      --mde: #a6c877;
+      --mde-soft: #262e1c;
+      --gua: #e0a94b;
+      --gua-soft: #332a16;
+      --cta: #e587a4;
+      --cta-soft: #35202a;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 10px 28px -10px rgba(0,0,0,0.55);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper: #14180f;
+    --paper-card: #1c2117;
+    --ink: #e9e7d9;
+    --ink-soft: #b3b3a0;
+    --ink-faint: #7d8270;
+    --line: #3a3f30;
+    --line-strong: #4c523f;
+    --accent: #7cc4a7;
+    --accent-soft: #223228;
+    --bog: #9fb8d4;
+    --bog-soft: #232c35;
+    --mde: #a6c877;
+    --mde-soft: #262e1c;
+    --gua: #e0a94b;
+    --gua-soft: #332a16;
+    --cta: #e587a4;
+    --cta-soft: #35202a;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 10px 28px -10px rgba(0,0,0,0.55);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 20px 96px;
+  }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* ---------- HERO / TICKET HEADER ---------- */
+
+  .ticket {
+    margin-top: 40px;
+    background: var(--paper-card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .ticket-main {
+    padding: 40px 44px 30px;
+    position: relative;
+  }
+
+  .ticket-eyebrow {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .ticket h1 {
+    font-family: "Big Shoulders Display", sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: clamp(48px, 9vw, 92px);
+    line-height: 0.86;
+    letter-spacing: 0.01em;
+    margin: 10px 0 6px;
+    color: var(--ink);
+    text-wrap: balance;
+  }
+
+  .ticket-sub {
+    font-family: "Source Serif 4", serif;
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 18px;
+    max-width: 54ch;
+    margin: 0;
+  }
+
+  .ticket-stub {
+    border-top: 1px dashed var(--line-strong);
+    padding: 20px 44px 26px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 28px 40px;
+    background: var(--accent-soft);
+  }
+
+  .stub-item .label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 4px;
+  }
+
+  .stub-item .value {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 15px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+  }
+
+  /* punch-hole perforation between main and stub */
+  .perf {
+    position: relative;
+    height: 0;
+  }
+  .perf::before {
+    content: "";
+    position: absolute;
+    left: -10px; right: -10px; top: -1px;
+    height: 1px;
+    background-image: radial-gradient(circle, var(--paper) 3px, transparent 3.5px);
+    background-size: 16px 3px;
+    background-repeat: repeat-x;
+  }
+
+  /* ---------- ROUTE STEPPER ---------- */
+
+  .route {
+    margin: 44px 0 8px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .route-stop {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+    padding: 4px 6px;
+    border-radius: 4px;
+  }
+  .route-stop:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .route-code {
+    font-family: "Big Shoulders Display", sans-serif;
+    font-weight: 800;
+    font-size: 30px;
+    letter-spacing: 0.02em;
+  }
+  .route-stop[data-c="bog"] .route-code { color: var(--bog); }
+  .route-stop[data-c="mde"] .route-code { color: var(--mde); }
+  .route-stop[data-c="gua"] .route-code { color: var(--gua); }
+  .route-stop[data-c="cta"] .route-code { color: var(--cta); }
+
+  .route-city {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+  }
+  .route-alt {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    color: var(--ink-faint);
+  }
+
+  .route-links {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    align-items: center;
+    margin: 0 0 44px;
+  }
+  .route-line {
+    grid-column: span 2;
+    height: 22px;
+    position: relative;
+  }
+  .route-line::before {
+    content: "";
+    position: absolute;
+    left: 6px; right: 6px; top: 50%;
+    height: 2px;
+    transform: translateY(-50%);
+  }
+  .route-line.plane::before {
+    background-image: linear-gradient(to right, var(--line-strong) 0 6px, transparent 6px 11px);
+    background-size: 11px 2px;
+    background-repeat: repeat-x;
+  }
+  .route-line.road::before {
+    background: var(--line-strong);
+  }
+  .route-line .glyph {
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--paper);
+    padding: 0 6px;
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .route-slot { grid-column: span 1; }
+
+  /* ---------- CITY SECTIONS ---------- */
+
+  section.city {
+    margin-top: 64px;
+    scroll-margin-top: 24px;
+  }
+
+  .city-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px 24px;
+    border-bottom: 2px solid var(--c);
+    padding-bottom: 14px;
+    margin-bottom: 22px;
+  }
+
+  .city-head h2 {
+    font-family: "Big Shoulders Display", sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: clamp(34px, 6vw, 54px);
+    line-height: 0.9;
+    margin: 0;
+    color: var(--c);
+  }
+
+  .city-facts {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .city-facts .f-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .city-facts .f-value {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .city-note {
+    font-style: italic;
+    color: var(--ink-soft);
+    margin: -6px 0 26px;
+    max-width: 62ch;
+  }
+
+  /* ---------- DAY CARD ---------- */
+
+  .day {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 0 22px;
+    margin-bottom: 22px;
+  }
+
+  .day-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 4px;
+  }
+  .day-num {
+    font-family: "Big Shoulders Display", sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--c);
+    letter-spacing: 0.06em;
+  }
+  .day-dom {
+    font-family: "Big Shoulders Display", sans-serif;
+    font-weight: 800;
+    font-size: 44px;
+    line-height: 1;
+    color: var(--ink);
+  }
+  .day-dow {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+  }
+  .day-rail {
+    width: 2px;
+    flex: 1;
+    background: var(--line);
+    margin-top: 8px;
+    min-height: 12px;
+  }
+
+  .day-card {
+    background: var(--paper-card);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--c);
+    border-radius: 5px;
+    padding: 18px 22px 20px;
+    box-shadow: var(--shadow);
+  }
+
+  .day-transfer {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--c);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .day-plan {
+    font-size: 15.5px;
+    color: var(--ink);
+    margin: 0 0 4px;
+  }
+  .day-plan .orig {
+    color: var(--ink);
+  }
+
+  .sugg {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px dotted var(--line-strong);
+  }
+  .sugg-label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 10px;
+  }
+
+  .sugg-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 6px 14px;
+    padding: 8px 0;
+  }
+  .sugg-item + .sugg-item {
+    border-top: 1px solid var(--line);
+  }
+  .sugg-name {
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .sugg-desc {
+    color: var(--ink-soft);
+    font-size: 15px;
+    grid-column: 1;
+    margin-top: 2px;
+  }
+  .sugg-link {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+    white-space: nowrap;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    color: var(--c);
+    border: 1px solid var(--c);
+    border-radius: 999px;
+    padding: 5px 12px;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .sugg-link:hover, .sugg-link:focus-visible {
+    background: var(--c);
+    color: var(--paper-card);
+  }
+
+  /* ---------- FOOTER ---------- */
+
+  footer {
+    margin-top: 72px;
+    padding-top: 26px;
+    border-top: 2px solid var(--ink);
+  }
+  footer h3 {
+    font-family: "Big Shoulders Display", sans-serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin: 0 0 14px;
+    color: var(--ink);
+  }
+  .foot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px 28px;
+    margin-bottom: 28px;
+  }
+  .foot-grid .f-title {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .foot-grid p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 15px;
+  }
+  .sign-off {
+    font-family: "Big Shoulders Display", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: var(--accent);
+    letter-spacing: 0.03em;
+  }
+
+  @media (max-width: 620px) {
+    .ticket-main { padding: 30px 22px 24px; }
+    .ticket-stub { padding: 18px 22px 22px; }
+    .route { grid-template-columns: repeat(4, 1fr); }
+    .route-links { display: none; }
+    .day { grid-template-columns: 60px 1fr; }
+    .day-dom { font-size: 32px; }
+    .sugg-item { grid-template-columns: 1fr; }
+    .sugg-link { grid-column: 1; grid-row: auto; justify-self: start; margin-top: 6px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ============ HERO TICKET ============ -->
+  <div class="ticket">
+    <div class="ticket-main">
+      <div class="ticket-eyebrow">
+        <span class="eyebrow">Itinerario di viaggio &middot; famiglia Piperno&nbsp;Debenedetti</span>
+        <span class="eyebrow">N&deg; 2026&#8209;COL&#8209;14</span>
+      </div>
+      <h1>Colombia</h1>
+      <p class="ticket-sub">Dalle nebbie andine di Bogotá alla costa caraibica di Cartagena, passando per l'eterna primavera di Medellín e i colori di Guatapé &mdash; il primo viaggio in Colombia del gruppo.</p>
+    </div>
+    <div class="perf"></div>
+    <div class="ticket-stub">
+      <div class="stub-item">
+        <div class="label">Partenza</div>
+        <div class="value">SAB 5 DIC 2026</div>
+      </div>
+      <div class="stub-item">
+        <div class="label">Rientro</div>
+        <div class="value">VEN 18 DIC 2026</div>
+      </div>
+      <div class="stub-item">
+        <div class="label">Durata</div>
+        <div class="value">14 GIORNI</div>
+      </div>
+      <div class="stub-item">
+        <div class="label">Tappe</div>
+        <div class="value">BOG &middot; MDE &middot; GUA &middot; CTG</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ROUTE STEPPER ============ -->
+  <div class="route">
+    <a class="route-stop" data-c="bog" href="#bogota">
+      <span class="route-code">BOG</span>
+      <span class="route-city">Bogotá</span>
+      <span class="route-alt">2.640 m</span>
+    </a>
+    <a class="route-stop" data-c="mde" href="#medellin">
+      <span class="route-code">MDE</span>
+      <span class="route-city">Medellín</span>
+      <span class="route-alt">1.495 m</span>
+    </a>
+    <a class="route-stop" data-c="gua" href="#guatape">
+      <span class="route-code">GUA</span>
+      <span class="route-city">Guatapé</span>
+      <span class="route-alt">1.925 m</span>
+    </a>
+    <a class="route-stop" data-c="cta" href="#cartagena">
+      <span class="route-code">CTG</span>
+      <span class="route-city">Cartagena</span>
+      <span class="route-alt">2 m</span>
+    </a>
+  </div>
+  <div class="route-links" aria-hidden="true">
+    <div class="route-slot"></div>
+    <div class="route-line plane"><span class="glyph">&#9992;</span></div>
+    <div class="route-slot"></div>
+    <div class="route-line road"><span class="glyph">&#9992;</span></div>
+    <div class="route-slot"></div>
+    <div class="route-line plane"><span class="glyph">&#9992;</span></div>
+    <div class="route-slot"></div>
+  </div>
+
+  <!-- ============ BOGOTÁ ============ -->
+  <section class="city" id="bogota" style="--c: var(--bog);">
+    <div class="city-head">
+      <h2>Bogotá</h2>
+      <div class="city-facts">
+        <div><div class="f-label">Altitudine</div><div class="f-value">2.640 m</div></div>
+        <div><div class="f-label">Notti</div><div class="f-value">4</div></div>
+        <div><div class="f-label">Clima a dicembre</div><div class="f-value">10&ndash;19&deg;C</div></div>
+      </div>
+    </div>
+    <p class="city-note">Prime 24&ndash;48 ore con ritmo lento: a 2.640 metri l'aria è sottile e conviene arrivare senza fretta prima di lanciarsi tra i musei e le colline.</p>
+
+    <!-- GIORNO 1 -->
+    <div class="day">
+      <div class="day-date">
+        <div class="day-num">01</div>
+        <div class="day-dom">5</div>
+        <div class="day-dow">sab, dic</div>
+        <div class="day-rail"></div>
+      </div>
+      <div class="day-card">
+        <div class="day-transfer">&#9992; Italia &rarr; Bogotá</div>
+        <p class="day-plan orig">Arrivo a Bogotá.</p>
+        <div class="sugg">
+          <div class="sugg-label">Suggerimento</div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">Acclimatamento in quota</div>
+              <div class="sugg-desc">Bogotá è a 2.640 m: la prima sera meglio pasti leggeri, poca fatica fisica e molta acqua &mdash; l'aria sottile si fa sentire più del previsto.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GIORNO 2 -->
+    <div class="day">
+      <div class="day-date">
+        <div class="day-num">02</div>
+        <div class="day-dom">6</div>
+        <div class="day-dow">dom, dic</div>
+        <div class="day-rail"></div>
+      </div>
+      <div class="day-card">
+        <p class="day-plan orig">Urban Living 8010, riposo, Mercato Paloquemao o, in alternativa, Calle de los Anticuarios. Cena a casa di Sandra o Michel (alt. 2.640&nbsp;m).</p>
+        <div class="sugg">
+          <div class="sugg-label">Suggerimenti</div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">8010 Urban Living</div>
+              <div class="sugg-desc">Residence di lusso nella zona di Chicó, appartamenti ampi con servizio hotel: comodo per una prima giornata di riposo dopo il volo, senza rinunciare allo spazio.</div>
+            </div>
+            <a class="sugg-link" href="https://www.8010urbanliving.com/en/" target="_blank" rel="noopener">8010urbanliving.com</a>
+          </div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">Plaza de Mercado de Paloquemao</div>
+              <div class="sugg-desc">Il grande mercato storico di frutta esotica, fiori e cucina di strada bogotana: aperto tutti i giorni dalle prime ore del mattino, ideale in tarda mattinata.</div>
+            </div>
+            <a class="sugg-link" href="https://plazadepaloquemao.com/" target="_blank" rel="noopener">plazadepaloquemao.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GIORNO 3 -->
+    <div class="day">
+      <div class="day-date">
+        <div class="day-num">03</div>
+        <div class="day-dom">7</div>
+        <div class="day-dow">lun, dic</div>
+        <div class="day-rail"></div>
+      </div>
+      <div class="day-card">
+        <p class="day-plan orig">Museo del Oro, La Candelaria, Monserrate, ristorante Salinas, Expoartesanías a Corferias.</p>
+        <div class="sugg">
+          <div class="sugg-label">Suggerimenti</div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">Museo del Oro</div>
+              <div class="sugg-desc">La più grande collezione al mondo di oreficeria precolombiana: prenotare la fascia oraria in anticipo, soprattutto nei giorni festivi.</div>
+            </div>
+            <a class="sugg-link" href="https://www.banrepcultural.org/bogota/museo-del-oro" target="_blank" rel="noopener">banrepcultural.org</a>
+          </div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">Cerro de Monserrate</div>
+              <div class="sugg-desc">Funicolare o cabinovia fino al santuario a 3.150 m, con la miglior vista panoramica sulla città; meglio evitare il tramonto per il freddo pungente.</div>
+            </div>
+            <a class="sugg-link" href="https://monserrate.co/" target="_blank" rel="noopener">monserrate.co</a>
+          </div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">Restaurante Pajares Salinas</div>
+              <div class="sugg-desc">Istituzione della cucina spagnola-colombiana a Bogotá dal 1963, tra le tavole più eleganti della città.</div>
+            </div>
+            <a class="sugg-link" href="https://www.pajaressalinas.com.co/" target="_blank" rel="noopener">pajaressalinas.com.co</a>
+          </div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">Expoartesanías, Corferias</div>
+              <div class="sugg-desc">La più grande fiera dell'artigianato dell'America Latina apre proprio il 7 dicembre e prosegue fino al 20: centinaia di espositori da tutta la Colombia in un unico padiglione, comodo da visitare senza troppo cammino.</div>
+            </div>
+            <a class="sugg-link" href="https://www.expoartesanias.com/" target="_blank" rel="noopener">expoartesanias.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GIORNO 4 -->
+    <div class="day">
+      <div class="day-date">
+        <div class="day-num">04</div>
+        <div class="day-dom">8</div>
+        <div class="day-dow">mar, dic</div>
+      </div>
+      <div class="day-card">
+        <p class="day-plan orig">Sinagoga Maguén Ovadía, Carmel Club Campestre, Minas de Sal di Zipaquirá, La Calera.</p>
+        <div class="sugg">
+          <div class="sugg-label">Suggerimenti</div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">Sinagoga Maguén Ovadía</div>
+              <div class="sugg-desc">La sinagoga della comunità sefardita di Bogotá, nel quartiere di Chapinero: per una visita è meglio avvisare in anticipo la comunità.</div>
+            </div>
+          </div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">Minas de Sal &mdash; Catedral de Sal di Zipaquirá</div>
+              <div class="sugg-desc">Cattedrale scavata a 180 m di profondità in un'antica miniera di salgemma, a circa un'ora da Bogotá: percorso su terreno pianeggiante, adatto anche a chi cammina con calma.</div>
+            </div>
+            <a class="sugg-link" href="https://catedraldesal.gov.co/" target="_blank" rel="noopener">catedraldesal.gov.co</a>
+          </div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">Carmel Club Campestre</div>
+              <div class="sugg-desc">Club privato con campo da golf immerso nella savana bogotana, a nord della città.</div>
+            </div>
+            <a class="sugg-link" href="https://www.carmelclub.com.co/" target="_blank" rel="noopener">carmelclub.com.co</a>
+          </div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">La Calera</div>
+              <div class="sugg-desc">Borgo sulle colline a est di Bogotá, famoso per i ristoranti campestri con vista sulla savana: ottima tappa per il rientro a fine giornata.</div>
+            </div>
+            <a class="sugg-link" href="https://revistadiners.com.co/viajes-estilo-de-vida/restaurantes-vista/" target="_blank" rel="noopener">revistadiners.com.co</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MEDELLÍN ============ -->
+  <section class="city" id="medellin" style="--c: var(--mde);">
+    <div class="city-head">
+      <h2>Medellín</h2>
+      <div class="city-facts">
+        <div><div class="f-label">Altitudine</div><div class="f-value">1.495 m</div></div>
+        <div><div class="f-label">Notti</div><div class="f-value">3</div></div>
+        <div><div class="f-label">Clima a dicembre</div><div class="f-value">16&ndash;27&deg;C</div></div>
+      </div>
+    </div>
+    <p class="city-note">La "città dell'eterna primavera": mille metri più in basso di Bogotá, l'aria si fa subito più dolce.</p>
+
+    <!-- GIORNO 5 -->
+    <div class="day">
+      <div class="day-date">
+        <div class="day-num">05</div>
+        <div class="day-dom">9</div>
+        <div class="day-dow">mer, dic</div>
+        <div class="day-rail"></div>
+      </div>
+      <div class="day-card">
+        <div class="day-transfer">&#9992; Bogotá &rarr; Medellín</div>
+        <p class="day-plan orig">Marriott Hotel o InterContinental, ristorante Carmen (alt. 1.496&nbsp;m).</p>
+        <div class="sugg">
+          <div class="sugg-label">Suggerimenti</div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">Medellín Marriott Hotel</div>
+              <div class="sugg-desc">Nel cuore del quartiere El Poblado, la zona più verde e sicura della città.</div>
+            </div>
+            <a class="sugg-link" href="https://www.marriott.com/en-us/hotels/mdemc-medellin-marriott-hotel/overview/" target="_blank" rel="noopener">marriott.com</a>
+          </div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">InterContinental Medellín</div>
+              <div class="sugg-desc">Alternativa storica su una collina di El Poblado, con giardini e vista sulla valle di Aburrá.</div>
+            </div>
+            <a class="sugg-link" href="https://movichhotels.com/en/medellin/" target="_blank" rel="noopener">movichhotels.com</a>
+          </div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">Carmen</div>
+              <div class="sugg-desc">Cucina colombiana contemporanea della chef Carmen Ángel, una delle tavole più premiate della città.</div>
+            </div>
+            <a class="sugg-link" href="https://carmenmedellin.com/" target="_blank" rel="noopener">carmenmedellin.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GIORNO 6 -->
+    <div class="day">
+      <div class="day-date">
+        <div class="day-num">06</div>
+        <div class="day-dom">10</div>
+        <div class="day-dow">gio, dic</div>
+        <div class="day-rail"></div>
+      </div>
+      <div class="day-card">
+        <p class="day-plan orig">Barrio El Poblado, Calle Provenza, Museo de Arte Moderno, tour del caffè Corazón de León.</p>
+        <div class="sugg">
+          <div class="sugg-label">Suggerimenti</div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">Calle Provenza, El Poblado</div>
+              <div class="sugg-desc">La strada pedonale più elegante di Medellín, tra boutique, caffè all'aperto e ristoranti: perfetta per una passeggiata tranquilla e un pranzo comodo, tutto a pochi passi dall'hotel.</div>
+            </div>
+            <a class="sugg-link" href="https://www.medellin.travel/provence-one-of-the-coolest-streets-in-the-world/?lang=en" target="_blank" rel="noopener">medellin.travel</a>
+          </div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">MAMM &mdash; Museo de Arte Moderno de Medellín</div>
+              <div class="sugg-desc">In un'ex fabbrica siderurgica a Ciudad del Río, con opere di Débora Arango e mostre temporanee di arte latinoamericana.</div>
+            </div>
+            <a class="sugg-link" href="https://www.elmamm.org/" target="_blank" rel="noopener">elmamm.org</a>
+          </div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">Corazón de León</div>
+              <div class="sugg-desc">Tour del caffè con degustazione guidata, dalla pianta alla tazza, nel distretto di El Poblado.</div>
+            </div>
+            <a class="sugg-link" href="https://cafecorazondeleon.com/" target="_blank" rel="noopener">cafecorazondeleon.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GIORNO 7 -->
+    <div class="day">
+      <div class="day-date">
+        <div class="day-num">07</div>
+        <div class="day-dom">11</div>
+        <div class="day-dow">ven, dic</div>
+      </div>
+      <div class="day-card">
+        <p class="day-plan orig">Plaza Botero, Museo de Antioquia, Comuna Trece.</p>
+        <div class="sugg">
+          <div class="sugg-label">Suggerimenti</div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">Museo de Antioquia &amp; Plaza Botero</div>
+              <div class="sugg-desc">Il museo custodisce la più grande collezione al mondo di opere di Fernando Botero; le 23 sculture monumentali della piazza antistante sono una sua donazione alla città.</div>
+            </div>
+            <a class="sugg-link" href="https://museodeantioquia.co/visita-tarifas/" target="_blank" rel="noopener">museodeantioquia.co</a>
+          </div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">Comuna 13 &mdash; Graffitour</div>
+              <div class="sugg-desc">Le scale mobili e i murales della comuna simbolo della rinascita di Medellín: consigliata una guida locale per il contesto storico.</div>
+            </div>
+            <a class="sugg-link" href="https://colombia.travel/en/medellin/graffiti-tour" target="_blank" rel="noopener">colombia.travel</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GUATAPÉ ============ -->
+  <section class="city" id="guatape" style="--c: var(--gua);">
+    <div class="city-head">
+      <h2>Guatapé</h2>
+      <div class="city-facts">
+        <div><div class="f-label">Altitudine</div><div class="f-value">1.925 m</div></div>
+        <div><div class="f-label">Notti</div><div class="f-value">1</div></div>
+        <div><div class="f-label">Distanza da Medellín</div><div class="f-value">~2 h auto</div></div>
+      </div>
+    </div>
+    <p class="city-note">Il pueblo colorato dei zócalos, sospeso su un labirinto di baie turchesi creato da una diga idroelettrica.</p>
+
+    <!-- GIORNO 8 -->
+    <div class="day">
+      <div class="day-date">
+        <div class="day-num">08</div>
+        <div class="day-dom">12</div>
+        <div class="day-dow">sab, dic</div>
+        <div class="day-rail"></div>
+      </div>
+      <div class="day-card">
+        <div class="day-transfer">&#128663; Medellín &rarr; Guatapé, in auto</div>
+        <p class="day-plan orig">Guatapé in macchina, Hotel The Brown.</p>
+        <div class="sugg">
+          <div class="sugg-label">Suggerimenti</div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">El Peñón de Guatapé (La Piedra)</div>
+              <div class="sugg-desc">Oltre 700 gradini fino alla cima del monolite granitico, con numerosi pianerottoli per fermarsi a riprendere fiato: anche fermandosi a due terzi la vista sulle baie del Embalse Peñol-Guatapé è già spettacolare.</div>
+            </div>
+            <a class="sugg-link" href="https://www.piedradelpenol.com.co/" target="_blank" rel="noopener">piedradelpenol.com.co</a>
+          </div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">Pueblo de los Zócalos</div>
+              <div class="sugg-desc">Il centro storico di Guatapé, con gli zoccoli colorati a bassorilievo che decorano ogni facciata: da girare a piedi con calma nel tardo pomeriggio.</div>
+            </div>
+          </div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">The Brown, Guatapé, Autograph Collection</div>
+              <div class="sugg-desc">Hotel Marriott sul lago, il più curato della zona, con accesso privato all'acqua.</div>
+            </div>
+            <a class="sugg-link" href="https://www.marriott.com/en-us/hotels/mdegp-the-brown-guatape-autograph-collection/overview/" target="_blank" rel="noopener">marriott.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CARTAGENA ============ -->
+  <section class="city" id="cartagena" style="--c: var(--cta);">
+    <div class="city-head">
+      <h2>Cartagena</h2>
+      <div class="city-facts">
+        <div><div class="f-label">Altitudine</div><div class="f-value">2 m &middot; livello del mare</div></div>
+        <div><div class="f-label">Notti</div><div class="f-value">5</div></div>
+        <div><div class="f-label">Clima a dicembre</div><div class="f-value">24&ndash;31&deg;C, stagione secca</div></div>
+      </div>
+    </div>
+    <p class="city-note">Dicembre è nel pieno della stagione secca caraibica: sole quasi garantito, ideale per la città murata e per i giorni di spiaggia. Per la storia e i monumenti del centro storico vale la guida a parte che abbiamo preparato per il matrimonio di Sophie e Michel &mdash; qui solo le new entry di questo viaggio.</p>
+
+    <!-- GIORNO 9 -->
+    <div class="day">
+      <div class="day-date">
+        <div class="day-num">09</div>
+        <div class="day-dom">13</div>
+        <div class="day-dow">dom, dic</div>
+        <div class="day-rail"></div>
+      </div>
+      <div class="day-card">
+        <div class="day-transfer">&#9992; Guatapé &rarr; Cartagena</div>
+        <p class="day-plan orig">Hotel Santa Teresa, ristorante H. Sasson in albergo.</p>
+        <div class="sugg">
+          <div class="sugg-label">Suggerimenti</div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">Hotel Charleston Santa Teresa</div>
+              <div class="sugg-desc">Ex convento del XVII secolo nella città murata, con piscina panoramica sui tetti e vista sulle mura coloniali.</div>
+            </div>
+            <a class="sugg-link" href="https://www.hotelcharlestonsantateresa.com/" target="_blank" rel="noopener">hotelcharlestonsantateresa.com</a>
+          </div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">Harry's Cartagena Restaurant</div>
+              <div class="sugg-desc">Il ristorante dello chef Harry Sasson, uno dei nomi più noti della cucina colombiana, si trova proprio all'interno del vostro hotel: comodissimo per la prima sera, senza doversi spostare.</div>
+            </div>
+            <a class="sugg-link" href="https://www.hotelcharlestonsantateresa.com/dining/harry-s-cartagena-restaurant" target="_blank" rel="noopener">hotelcharlestonsantateresa.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GIORNO 10 -->
+    <div class="day">
+      <div class="day-date">
+        <div class="day-num">10</div>
+        <div class="day-dom">14</div>
+        <div class="day-dow">lun, dic</div>
+        <div class="day-rail"></div>
+      </div>
+      <div class="day-card">
+        <p class="day-plan orig">Ciudad Vieja, Castillo de San Felipe, La Popa, La Zarzuela, aperitivo al Café del Mar, cena a Getsemaní.</p>
+        <div class="sugg">
+          <div class="sugg-label">Suggerimenti</div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">Castillo de San Felipe de Barajas</div>
+              <div class="sugg-desc">La più grande fortezza mai costruita dagli spagnoli nelle Americhe: meglio visitarla al mattino presto o a fine pomeriggio, per evitare il caldo sulla pietra a vista.</div>
+            </div>
+            <a class="sugg-link" href="https://fortificacionescartagena.com.co/es/planee-su-visita/castillo-de-san-felipe-de-barajas/" target="_blank" rel="noopener">fortificacionescartagena.com.co</a>
+          </div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">Convento de la Popa</div>
+              <div class="sugg-desc">Sulla collina più alta della città (150 m), con la vista d'insieme su Cartagena e la baia; consigliato il taxi, non a piedi.</div>
+            </div>
+          </div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">La Zarzuela</div>
+              <div class="sugg-desc">Paella e cucina spagnola in Plaza San Diego, terrazza tra le più eleganti del centro storico.</div>
+            </div>
+            <a class="sugg-link" href="https://www.restaurante-lazarzuela.com/" target="_blank" rel="noopener">restaurante-lazarzuela.com</a>
+          </div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">El Baluarte de la Gente (ex Café del Mar)</div>
+              <div class="sugg-desc">Lo storico locale sul Baluarte di Santo Domingo, in cima alle mura, ha cambiato gestione e nome nel 2025: stesso tramonto sul Caribe di sempre, oggi gestito come progetto sociale della città. Aperto tutti i giorni dalle 16 alle 23.</div>
+            </div>
+          </div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">La Cocina de Pepina</div>
+              <div class="sugg-desc">Cucina casalinga caraibica in un cortile raccolto di Getsemaní, atmosfera calda e poco affollata: tra le tavole più amate del quartiere per una cena tranquilla.</div>
+            </div>
+            <a class="sugg-link" href="https://www.tripadvisor.com/Restaurant_Review-g297476-d1725268-Reviews-La_Cocina_De_Pepina-Cartagena_Cartagena_District_Bolivar_Department.html" target="_blank" rel="noopener">tripadvisor.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GIORNO 11 -->
+    <div class="day">
+      <div class="day-date">
+        <div class="day-num">11</div>
+        <div class="day-dom">15</div>
+        <div class="day-dow">mar, dic</div>
+        <div class="day-rail"></div>
+      </div>
+      <div class="day-card">
+        <div class="day-transfer">&#9973; Cartagena &rarr; Punta Iguana</div>
+        <p class="day-plan orig">Spiaggia, giornata in barca.</p>
+        <div class="sugg">
+          <div class="sugg-label">Suggerimenti</div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">Islas del Rosario in barca</div>
+              <div class="sugg-desc">Arcipelago di 27 isole a circa 1 ora di lancia da Cartagena, acque turchesi e barriera corallina; le uscite in giornata includono in genere soste in due o tre beach club.</div>
+            </div>
+            <a class="sugg-link" href="https://www.getyourguide.com/rosario-islands-l114972/cruises-boat-tours-tc48/" target="_blank" rel="noopener">getyourguide.com</a>
+          </div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">Club Náutico Punta Iguana</div>
+              <div class="sugg-desc">Beach club sulla penisola di Barú, tra i più consigliati dell'arcipelago per acqua calma e servizio in giornata.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GIORNI 12-13 -->
+    <div class="day">
+      <div class="day-date">
+        <div class="day-num">12&ndash;13</div>
+        <div class="day-dom">16&ndash;17</div>
+        <div class="day-dow">mer&ndash;gio, dic</div>
+        <div class="day-rail"></div>
+      </div>
+      <div class="day-card">
+        <p class="day-plan orig">Spiaggia.</p>
+        <div class="sugg">
+          <div class="sugg-label">Suggerimento</div>
+          <div class="sugg-item">
+            <div>
+              <div class="sugg-name">Due giorni liberi</div>
+              <div class="sugg-desc">Nessun programma fisso: il momento giusto per alternare relax in spiaggia e un'ultima passeggiata serale nella città vecchia, più fresca e vivace dopo il tramonto.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GIORNO 14 -->
+    <div class="day">
+      <div class="day-date">
+        <div class="day-num">14</div>
+        <div class="day-dom">18</div>
+        <div class="day-dow">ven, dic</div>
+      </div>
+      <div class="day-card">
+        <div class="day-transfer">&#9992; Cartagena &rarr; Italia</div>
+        <p class="day-plan orig">Rientro in Italia.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <h3>Note pratiche</h3>
+    <div class="foot-grid">
+      <div>
+        <div class="f-title">Dislivelli</div>
+        <p>Il percorso scende di quota passo dopo passo: Bogotá 2.640&nbsp;m &rarr; Guatapé 1.925&nbsp;m &rarr; Medellín 1.495&nbsp;m &rarr; Cartagena livello del mare. Conviene affrontarlo in quest'ordine, come da programma, e non al contrario.</p>
+      </div>
+      <div>
+        <div class="f-title">Meteo di dicembre</div>
+        <p>In tutta la Colombia dicembre segna l'inizio della stagione secca: cieli tipicamente tersi a Bogotá e Medellín, caldo umido e sole pieno sulla costa caraibica.</p>
+      </div>
+      <div>
+        <div class="f-title">Bagagli</div>
+        <p>Strati leggeri e un giubbotto caldo per le sere di Bogotá e Guatapé; costumi, protezione solare alta e repellente per la tappa di Cartagena.</p>
+      </div>
+      <div>
+        <div class="f-title">Un consiglio per il gruppo</div>
+        <p>Essendo il primo viaggio in Colombia e con un gruppo over 70, vale la pena: parlarne col proprio medico prima di partire per via della quota di Bogotá; tenere le prime 24&ndash;48 ore leggere; prediligere taxi o auto private per gli spostamenti più lunghi; e considerare i due giorni di spiaggia finali come vero cuscinetto di riposo prima del rientro.</p>
+      </div>
+    </div>
+    <p class="sign-off">Buon viaggio!</p>
+  </footer>
+
+</div>
+</body>
+</html>
